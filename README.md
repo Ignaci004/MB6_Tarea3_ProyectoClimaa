@@ -15,7 +15,7 @@ Aplicar **Scrum, Git y desarrollo web colaborativo** para entregar un producto f
 |----------------|-------------------|-----------------|
 | 🧑‍💼 Scrum Master | **José Hernández** | Facilitar procesos |
 | 👩‍💼 Product Owner | **Yasumi Pastor** | Visión del producto |
-| 👨‍💻 Dev 1        | **Alejandro Sertán** | HTML |
+| 👨‍💻 Dev 1        | **Alejandro Cerdan** | HTML |
 | 👩‍💻 Dev 2        | **Alexa Montenegro** | CSS |
 | 👨‍💻 Dev 3        | **Jack Cruz**        | Backend (API Flask) |
 | 👨‍💻 Dev 4        | **David Leonardo**   | Rutas |
