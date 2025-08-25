@@ -1,0 +1,133 @@
+/* Body y cielo */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* Nueva fuente */
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.sky {
+    /* El fondo ahora usa la animación sincronizada */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    animation: synchronizedColors 60s infinite alternate;
+}
+
+/* Animación sincronizada para el fondo y el contorno del contenedor */
+@keyframes synchronizedColors {
+    0% { background: linear-gradient(180deg, #87ceeb 0%, #e0f7ff 100%); } /* Día */
+    25% { background: linear-gradient(180deg, #fceabb 0%, #ffdde1 100%); } /* Atardecer */
+    50% { background: linear-gradient(180deg, #1f2b45 0%, #3e506d 100%); } /* Noche suave */
+    75% { background: linear-gradient(180deg, #fceabb 0%, #ffdde1 100%); } /* Amanecer */
+    100% { background: linear-gradient(180deg, #87ceeb 0%, #e0f7ff 100%); } /* Día */
+}
+
+/* Nubes */
+.cloud {
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.8;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.05);
+}
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+.cloud::before { width: 60%; height: 60%; top: -20%; left: 15%; }
+.cloud::after { width: 50%; height: 50%; top: 10%; left: 55%; }
+
+/* Nubes de fondo - más pequeñas y transparentes */
+.cloud.cloud-bg {
+    opacity: 0.5;
+    transform: scale(0.6);
+    filter: blur(2px);
+    z-index: -1;
+}
+
+/* Animación de nubes flotando de izquierda a derecha */
+@keyframes floatClouds {
+    0% { transform: translateX(-250px) translateY(0px) scale(1); }
+    25% { transform: translateX(25vw) translateY(10px) scale(1); }
+    50% { transform: translateX(50vw) translateY(-5px) scale(1); }
+    75% { transform: translateX(75vw) translateY(15px) scale(1); }
+    100% { transform: translateX(100vw) translateY(0px) scale(1); }
+}
+
+/* Nueva animación de nubes flotando de derecha a izquierda */
+@keyframes floatCloudsReverse {
+    0% { transform: translateX(100vw) translateY(0px) scale(1); }
+    25% { transform: translateX(75vw) translateY(10px) scale(1); }
+    50% { transform: translateX(50vw) translateY(-5px) scale(1); }
+    75% { transform: translateX(25vw) translateY(15px) scale(1); }
+    100% { transform: translateX(-250px) translateY(0px) scale(1); }
+}
+
+/* Contenedor del borde animado */
+.weather-card-container {
+    position: relative;
+    padding: 5px; /* Espacio para el borde */
+    border-radius: 30px;
+    /* El contorno también usa la animación sincronizada */
+    animation: synchronizedColors 60s infinite alternate;
+    z-index: 10;
+}
+
+/* Tarjeta principal */
+.weather-card {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: none;
+}
+
+/* Caja de resultados del clima */
+.weather-box {
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Estilos de texto y botón */
+h1, h2, p {
+    color: #0a0129 !important;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+}
+
+.form-control {
+    padding: 12px;
+}
+.btn-danger {
+    transition: 0.3s;
+}
+.btn-danger:hover {
+    background-color: #ff4757;
+    transform: scale(1.05);
+}
+
+/* Estilo para el nuevo botón de reinicio */
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
